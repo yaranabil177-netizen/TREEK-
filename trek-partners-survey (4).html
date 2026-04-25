@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شركاء النجاح - تريك</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mauve-deep: #4A1A6B;
+    --mauve-mid: #6B2D8B;
+    --mauve-light: #8B4BAB;
+    --mauve-soft: #A56CC1;
+    --mauve-glow: #C99EDA;
+    --mauve-pale: #E8D5F5;
+    --white: #FFFFFF;
+    --white-90: rgba(255,255,255,0.9);
+    --white-70: rgba(255,255,255,0.7);
+    --white-40: rgba(255,255,255,0.4);
+    --white-15: rgba(255,255,255,0.15);
+    --white-08: rgba(255,255,255,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #2D0A45 0%, #4A1A6B 30%, #6B2D8B 60%, #3D1560 100%);
+    min-height: 100vh;
+    color: var(--white);
+    padding: 40px 20px;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Background decorative elements */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(169,110,219,0.25) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    bottom: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(107,45,139,0.3) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .logo-badge {
+    display: inline-block;
+    background: var(--white-15);
+    border: 1px solid var(--white-40);
+    border-radius: 50px;
+    padding: 8px 28px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--mauve-glow);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+  }
+
+  .header h1 {
+    font-size: clamp(28px, 5vw, 46px);
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--white);
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(169,110,219,0.5);
+  }
+
+  .header h1 span {
+    color: var(--mauve-glow);
+  }
+
+  .header p {
+    font-size: 15px;
+    color: var(--white-70);
+    line-height: 1.8;
+    max-width: 560px;
+    margin: 0 auto 8px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 300;
+  }
+
+  .divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--mauve-glow), transparent);
+    margin: 24px auto;
+    border-radius: 2px;
+  }
+
+  /* Form Card */
+  .form-card {
+    background: var(--white-08);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--white-15);
+    border-radius: 24px;
+    padding: 48px 44px;
+    animation: fadeUp 0.9s ease 0.2s both;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.3), inset 0 1px 0 var(--white-15);
+  }
+
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--mauve-glow);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--white-15);
+  }
+
+  .fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .field-full { grid-column: 1 / -1; }
+
+  .field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  label {
+    font-size: 13px;
+    color: var(--white-70);
+    font-weight: 600;
+    font-family: 'Cairo', sans-serif;
+    letter-spacing: 0.3px;
+  }
+
+  label .required {
+    color: var(--mauve-glow);
+    margin-right: 3px;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  select,
+  textarea {
+    background: var(--white-08);
+    border: 1px solid var(--white-15);
+    border-radius: 12px;
+    padding: 13px 16px;
+    color: var(--white);
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--white-40);
+    font-size: 13px;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--mauve-glow);
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 3px rgba(201,158,218,0.15);
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  select option {
+    background: #4A1A6B;
+    color: white;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.7;
+  }
+
+  /* Checkboxes */
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white-08);
+    border: 1px solid var(--white-15);
+    border-radius: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+  }
+
+  .checkbox-item:hover {
+    background: var(--white-15);
+    border-color: var(--white-40);
+  }
+
+  .checkbox-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--mauve-glow);
+    cursor: pointer;
+  }
+
+  .checkbox-item span {
+    font-size: 13px;
+    color: var(--white-70);
+    font-family: 'Tajawal', sans-serif;
+  }
+
+  .checkbox-item:has(input:checked) {
+    background: rgba(201,158,218,0.15);
+    border-color: var(--mauve-glow);
+  }
+  .checkbox-item:has(input:checked) span {
+    color: var(--white);
+  }
+
+  /* File Upload */
+  .file-upload {
+    border: 1.5px dashed var(--white-40);
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--white-08);
+    position: relative;
+  }
+  .file-upload:hover {
+    border-color: var(--mauve-glow);
+    background: rgba(201,158,218,0.08);
+  }
+  .file-upload input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+  .file-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .file-upload p {
+    color: var(--white-70);
+    font-size: 13px;
+    line-height: 1.7;
+    font-family: 'Tajawal', sans-serif;
+  }
+  .file-upload p strong {
+    color: var(--mauve-glow);
+  }
+
+  /* Section divider */
+  .section-sep {
+    height: 1px;
+    background: var(--white-15);
+    margin: 36px 0;
+  }
+
+  /* Submit Button */
+  .submit-btn {
+    width: 100%;
+    padding: 17px;
+    background: linear-gradient(135deg, var(--mauve-mid), var(--mauve-light));
+    border: none;
+    border-radius: 14px;
+    color: var(--white);
+    font-family: 'Cairo', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(107,45,139,0.4);
+    letter-spacing: 0.5px;
+  }
+
+  .submit-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(107,45,139,0.55);
+  }
+  .submit-btn:hover::before { opacity: 1; }
+  .submit-btn:active { transform: translateY(0); }
+
+  /* Success Message */
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 52px 32px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .success-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--mauve-mid), var(--mauve-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin: 0 auto 24px;
+    box-shadow: 0 12px 30px rgba(107,45,139,0.4);
+  }
+  .success-msg h2 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    color: var(--white);
+  }
+  .success-msg p {
+    font-size: 15px;
+    color: var(--white-70);
+    line-height: 1.8;
+    font-family: 'Tajawal', sans-serif;
+    max-width: 440px;
+    margin: 0 auto 10px;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    color: var(--white-40);
+    font-size: 12px;
+    font-family: 'Tajawal', sans-serif;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  /* Animations */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .form-card { padding: 32px 22px; }
+    .fields-grid { grid-template-columns: 1fr; }
+    .checkbox-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-badge">🚀 تريك</div>
+    <h1>شركاء <span>النجاح</span><br>في شركات الشحن</h1>
+    <div class="divider"></div>
+    <p>يسرّنا اهتمامكم بالانضمام إلى قائمة شركائنا في تريك.</p>
+    <p>نرجو منكم تعبئة البيانات المطلوبة، وسيتم مراجعة طلبكم والتواصل معكم لاحقًا في حال توافق فرص التعاون.</p>
+  </div>
+
+  <!-- Form Card -->
+  <div class="form-card" id="formCard">
+
+    <div id="theForm">
+
+      <!-- بيانات الشركة -->
+      <div class="section-title">بيانات التواصل</div>
+
+      <div class="fields-grid">
+        <div class="field-group field-full">
+          <label><span class="required">*</span> اسم الشركة</label>
+          <input type="text" id="companyName" placeholder="أدخل اسم الشركة" />
+        </div>
+
+        <div class="field-group">
+          <label><span class="required">*</span> رقم التواصل</label>
+          <input type="tel" id="phone" placeholder="05xxxxxxxx" />
+        </div>
+
+        <div class="field-group">
+          <label><span class="required">*</span> البريد الإلكتروني</label>
+          <input type="email" id="email" placeholder="example@company.com" />
+        </div>
+      </div>
+
+      <div class="section-sep"></div>
+
+      <!-- تفاصيل الخدمة -->
+      <div class="section-title">تفاصيل الخدمة</div>
+
+      <div class="fields-grid">
+        <div class="field-group field-full">
+          <label><span class="required">*</span> ما الذي يميّزكم عن باقي الشركات؟</label>
+          <textarea id="difference" placeholder="أخبرونا عن ميزتكم التنافسية وما يجعلكم الاختيار الأفضل..."></textarea>
+        </div>
+
+        <div class="field-group field-full">
+          <label><span class="required">*</span> مناطق التغطية</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" value="الرياض" /><span>الرياض</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="جدة" /><span>جدة</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="مكة المكرمة" /><span>مكة المكرمة</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="المدينة المنورة" /><span>المدينة المنورة</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="الدمام" /><span>الدمام</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="الخبر" /><span>الخبر</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="تبوك" /><span>تبوك</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="أبها" /><span>أبها</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="نجران" /><span>نجران</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="القصيم" /><span>القصيم</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="حائل" /><span>حائل</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="جميع المناطق" /><span>جميع المناطق</span></label>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label><span class="required">*</span> مدة التوصيل</label>
+          <select id="deliveryTime">
+            <option value="" disabled selected>اختر مدة التوصيل</option>
+            <option value="نفس اليوم">نفس اليوم</option>
+            <option value="خلال 24 ساعة">خلال 24 ساعة</option>
+            <option value="1-2 يوم عمل">1-2 يوم عمل</option>
+            <option value="2-3 أيام عمل">2-3 أيام عمل</option>
+            <option value="3-5 أيام عمل">3-5 أيام عمل</option>
+            <option value="أكثر من 5 أيام">أكثر من 5 أيام</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label><span class="required">*</span> أفضل سعر يمكنكم تقديمه</label>
+          <input type="text" id="bestPrice" placeholder="مثال: 15 ريال لأول كيلو" />
+        </div>
+
+        <div class="field-group">
+          <label><span class="required">*</span> الوزن الأقصى المسموح به (كجم)</label>
+          <input type="number" id="maxWeight" placeholder="مثال: 30" min="1" />
+        </div>
+
+        <div class="field-group">
+          <label><span class="required">*</span> رسوم خدمة الدفع عند الاستلام</label>
+          <input type="text" id="codFee" placeholder="مثال: 2% أو 5 ريال" />
+        </div>
+
+        <div class="field-group field-full">
+          <label>تفاصيل إضافية تودّون ذكرها</label>
+          <textarea id="extra" placeholder="أي معلومات إضافية تودّون مشاركتها معنا..."></textarea>
+        </div>
+
+        <div class="field-group field-full">
+          <label>إرفاق ملف العرض</label>
+          <div class="file-upload" id="fileUpload">
+            <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx" onchange="handleFile(this)" />
+            <div class="file-icon">📎</div>
+            <p id="fileText"><strong>اضغط لرفع الملف</strong> أو اسحبه هنا<br>PDF, Word, Excel — بحد أقصى 10MB</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error message -->
+      <p id="errorMsg" style="color:#FFBDE0; font-size:13px; text-align:center; margin-top:12px; display:none; font-family:'Tajawal',sans-serif;"></p>
+
+      <button class="submit-btn" onclick="submitForm()">إرسال طلب الانضمام ✨</button>
+
+    </div>
+
+    <!-- Success -->
+    <div class="success-msg" id="successMsg">
+      <div class="success-icon">🤝</div>
+      <h2>تم استلام طلبكم بنجاح!</h2>
+      <p>يسرّنا استلام طلب انضمامكم إلى قائمة شركائنا في تريك.</p>
+      <p>سيتم مراجعة طلبكم من قبل الفريق المختص، وفي حال وجود توافق سيتم التواصل معكم لاحقًا.</p>
+      <p style="color:var(--mauve-glow); margin-top:16px; font-size:16px; font-weight:700;">نشكر اهتمامكم ونسعد بإمكانية التعاون معكم 🌟</p>
+    </div>
+
+  </div>
+
+  <div class="footer">© تريك — جميع الحقوق محفوظة</div>
+</div>
+
+<script>
+  function handleFile(input) {
+    const file = input.files[0];
+    if (file) {
+      document.getElementById('fileText').innerHTML = `<strong style="color:var(--mauve-glow)">✅ ${file.name}</strong><br><span style="font-size:11px; color:rgba(255,255,255,0.5)">اضغط لتغيير الملف</span>`;
+    }
+  }
+
+  function submitForm() {
+    const required = [
+      { id: 'companyName', label: 'اسم الشركة' },
+      { id: 'phone', label: 'رقم التواصل' },
+      { id: 'email', label: 'البريد الإلكتروني' },
+      { id: 'difference', label: 'ما يميّزكم' },
+      { id: 'deliveryTime', label: 'مدة التوصيل' },
+      { id: 'bestPrice', label: 'أفضل سعر' },
+      { id: 'maxWeight', label: 'الوزن الأقصى' },
+      { id: 'codFee', label: 'رسوم الدفع عند الاستلام' },
+    ];
+
+    // Check checkboxes
+    const checkedAreas = document.querySelectorAll('.checkbox-item input:checked');
+    const errEl = document.getElementById('errorMsg');
+
+    for (const f of required) {
+      const el = document.getElementById(f.id);
+      if (!el.value.trim()) {
+        errEl.textContent = `⚠️ يرجى تعبئة حقل: ${f.label}`;
+        errEl.style.display = 'block';
+        el.focus();
+        return;
+      }
+    }
+    if (checkedAreas.length === 0) {
+      errEl.textContent = '⚠️ يرجى اختيار منطقة تغطية واحدة على الأقل';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    // Email check
+    const email = document.getElementById('email').value;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errEl.textContent = '⚠️ يرجى إدخال بريد إلكتروني صحيح';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    errEl.style.display = 'none';
+
+    // Show success
+    document.getElementById('theForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
